@@ -13,6 +13,7 @@ public class Loans {
 
     @Id
     @Column(name = "loan_number")
+
     private long loanNumber;
 
     @Column(name = "customer_id")

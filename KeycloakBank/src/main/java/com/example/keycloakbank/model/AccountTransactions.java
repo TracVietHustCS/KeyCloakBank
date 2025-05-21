@@ -20,8 +20,7 @@ public class AccountTransactions extends  BaseEntity{
 	@Column(name="account_number")
 	private long accountNumber;
 	
-	@Column(name = "customer_id")
-	private long customerId;
+
 	
 	@Column(name="transaction_dt")
 	private Date transactionDt;

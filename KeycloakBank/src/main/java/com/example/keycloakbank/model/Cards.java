@@ -15,8 +15,7 @@ public class Cards extends BaseEntity{
     @Column(name = "card_id")
     private long cardId;
 
-    @Column(name = "customer_id")
-    private long customerId;
+
 
     @Column(name = "card_number")
     private String cardNumber;
