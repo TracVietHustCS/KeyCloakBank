@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 @Getter @Setter
@@ -23,10 +24,10 @@ public class Notice extends BaseEntity{
     private String noticeDetails;
 
     @Column(name = "notic_beg_dt")
-    private Date noticBegDt;
+    private LocalDate noticBegDt;
 
     @Column(name = "notic_end_dt")
-    private Date noticEndDt;
+    private LocalDate noticEndDt;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

@@ -3,8 +3,7 @@ package com.example.keycloakbank.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.apache.logging.log4j.util.Lazy;
 
 import java.sql.Date;
@@ -12,7 +11,10 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Getter @Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper=false)
 public class Customer extends BaseEntity {
 
     @Id

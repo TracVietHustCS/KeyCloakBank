@@ -1,5 +1,6 @@
 package com.example.keycloakbank.repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -17,7 +18,7 @@ import org.springframework.stereotype.Repository;
 public interface NoticeRepository extends CrudRepository<Notice, Long> {
 
 	@Query("SELECT n FROM Notice n WHERE :today BETWEEN n.noticBegDt AND n.noticEndDt")
-	List<Notice> findAllActiveNotices(@Param("today") LocalDateTime today);
+	List<Notice> findAllActiveNotices(@Param("today") LocalDate today);
 
 
 }

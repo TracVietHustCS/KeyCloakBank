@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
@@ -24,7 +25,7 @@ public class NoticesController {
 
     @GetMapping("/notices")
     public ResponseEntity<List<Notice>> getNotices() {
-        LocalDateTime now = LocalDateTime.now();
+        LocalDate now = LocalDate.now();
         List<Notice> notices = noticeRepository.findAllActiveNotices(now);
         if (notices != null) {
             return ResponseEntity.ok()
