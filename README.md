@@ -76,11 +76,24 @@ cd keycloak-bank
 # Run the Spring Boot application
 ./mvnw spring-boot:run  # Or: mvn spring-boot:run
 
-### Installation
+# Run MySQL
+docker run -d --name mysql-keycloak \
+  -e MYSQL_ROOT_PASSWORD=your_root_password \
+  -e MYSQL_DATABASE=keycloak \
+  -e MYSQL_USER=keycloak \
+  -e MYSQL_PASSWORD=keycloak_password \
+  -p 3307:3306 \
+  -d mysql:8.0
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/keycloak-bank.git
-cd keycloak-bank
+# Run Keycloak (Quarkus distribution, recommended)
+docker run -d --name keycloak \
+  -e KEYCLOAK_ADMIN=admin \
+  -e KEYCLOAK_ADMIN_PASSWORD=admin \
+  -p 8080:8080 \
+  quay.io/keycloak/keycloak:24.0.1 \
+  start-dev
+
+
+
 
 
