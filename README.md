@@ -1,49 +1,66 @@
-# KeyCloakBank
-# 📌 TÊN DỰ ÁN
+# 🏦 Keycloak Bank
 
-Mô tả ngắn gọn về dự án. (Ví dụ: Một ứng dụng web giúp người dùng theo dõi chi tiêu hàng ngày.)
+**Keycloak Bank** is a simple application designed to demonstrate the implementation of multiple OAuth2/OIDC grant type flows using **Keycloak**. It includes various authentication flows such as:
 
----
+- 🔐 Authorization Code Flow  
+- 🔐 Client Credentials Flow  
+- 🔐 Resource Owner Password Credentials Flow *(optional)*  
+- 🔐 Implicit Flow *(deprecated but optionally demonstrated)*  
 
-## 📚 Mục lục
+This project also integrates modern identity features like:
 
-- [Giới thiệu](#giới-thiệu)
-- [Tính năng](#tính-năng)
-- [Cài đặt](#cài-đặt)
-- [Cách sử dụng](#cách-sử-dụng)
-- [Cấu trúc thư mục](#cấu-trúc-thư-mục)
-- [Đóng góp](#đóng-góp)
-- [Tác giả](#tác-giả)
-- [Giấy phép](#giấy-phép)
+- 🌐 Social Login (Google, Facebook, etc.)  
+- 📱 Multi-Factor Authentication (MFA) with device support
 
 ---
 
-## 👋 Giới thiệu
+## 📑 Table of Contents
 
-Giới thiệu chi tiết hơn về dự án, mục đích, lý do tạo ra nó.  
-(Ví dụ: Ứng dụng được tạo ra để giúp người bận rộn quản lý tài chính cá nhân một cách hiệu quả và đơn giản.)
-
----
-
-## ✨ Tính năng
-
-- ✅ Ghi chép chi tiêu nhanh chóng
-- 📈 Biểu đồ thống kê trực quan
-- 🗂 Phân loại theo danh mục
-- 🔐 Bảo mật bằng đăng nhập Google
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Folder Structure](#folder-structure)
+- [Contributing](#contributing)
+- [Author](#author)
+- [License](#license)
 
 ---
 
-## 🛠 Cài đặt
+## 📘 Introduction
+
+**Keycloak Bank** serves as a hands-on playground for developers looking to understand and apply Keycloak's powerful identity management capabilities with OAuth2 and OpenID Connect (OIDC). It's ideal for learning, experimenting, or even as a reference for production implementations.
+
+---
+
+## ✨ Features
+
+- ✅ Demonstrates multiple OAuth2/OIDC grant types
+- 🔑 Full integration with **Keycloak**
+- 🌐 Social login support
+- 📱 MFA device enrollment and validation
+- 🛡 Secure token handling and session management
+- 🧩 Modular and easy-to-extend architecture
+
+---
+
+## 🛠 Getting Started
+
+### Prerequisites
+
+- Node.js / Java (depending on your backend stack)
+- Docker (for running Keycloak)
+- Git
+
+### Installation
 
 ```bash
-# Clone dự án
-git clone https://github.com/tennguoidung/ten-du-an.git
-cd ten-du-an
+# Clone the repository
+git clone https://github.com/yourusername/keycloak-bank.git
+cd keycloak-bank
 
-# Cài dependencies
+# Install dependencies
 npm install
 
-# Chạy ứng dụng
+# Run the app
 npm start
-
