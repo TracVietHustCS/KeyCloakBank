@@ -152,13 +152,4 @@ KeyCloakBank/
 │   └── ...
 ├── README.md               # Project documentation
 └── ...
-
-
-  
-
-
-
-
-
-
-
+```
