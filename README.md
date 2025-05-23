@@ -19,11 +19,10 @@ This project also integrates modern identity features like:
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
+- [Usage](#authen-workflow)
 - [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [Author](#author)
-- [License](#license)
+
+
 
 ---
 
@@ -93,6 +92,71 @@ docker run -d --name keycloak \
   quay.io/keycloak/keycloak:24.0.1 \
   start-dev
 ```
+# OAuth2 Resource Server Workflow in Spring Security
+
+This document explains the basic workflow of how Spring Security handles OAuth2 Resource Server authentication with JWT tokens.
+
+## Overview
+
+- The application is configured as an **OAuth2 Resource Server** using `http.oauth2ResourceServer()`.
+- This configuration **automatically adds a filter** called `BearerTokenAuthenticationFilter` to the Spring Security filter chain.
+- The filter extracts the **Bearer token** from the HTTP `Authorization` header of incoming requests.
+
+## Workflow
+
+1. **Client Request**  
+   The client sends an HTTP request to the resource server with an `Authorization` header containing the Bearer JWT token.
+
+2. **BearerTokenAuthenticationFilter**  
+   This filter intercepts the request, extracts the token, and initiates authentication.
+
+3. **Token Validation**  
+   - The token is validated using a `JwtDecoder` (if JWT is used) or via token introspection (if opaque token).  
+   - Validation includes verifying the signature, expiry, and token claims.
+
+4. **Authentication Conversion**  
+   - The valid JWT is converted into a Spring Security `Authentication` object using a `JwtAuthenticationConverter`.  
+   - This converter maps token claims (like roles) to Spring Security authorities.
+
+5. **SecurityContext Population**  
+   The authenticated `Authentication` object is stored in the `SecurityContext`, making user details available throughout the request lifecycle.
+
+6. **Access Control**  
+   Spring Security enforces access rules (e.g., role checks) based on the authenticated user and configured authorization rules.
+
+7. **Request Handling or Rejection**  
+   - If authentication and authorization succeed, the request proceeds to the controller.  
+   - Otherwise, an error (401 Unauthorized or 403 Forbidden) is returned.
+  
+     ![image](https://github.com/user-attachments/assets/9d48f99b-88d0-4217-bc68-42259591e20d)
+---
+
+## Summary
+
+- `http.oauth2ResourceServer()` **enables Resource Server support and adds the required authentication filter**.  
+- The **BearerTokenAuthenticationFilter** manages the token extraction and authentication process automatically.  
+- Developers can customize JWT-to-authority mapping via `JwtAuthenticationConverter`.  
+- This setup ensures stateless, secure API access using OAuth2 access tokens.
+
+  ## 📁 Folder Structure
+
+```plaintext
+KeyCloakBank/
+├── KeycloakBank/           # Spring Boot backend application
+│   ├── src/                # Java source code
+│   ├── pom.xml             # Maven project descriptor
+│   └── ...
+├── bank-app-ui/            # Frontend application (e.g., React)
+│   ├── src/                # Frontend source code
+│   ├── package.json        # Node.js project descriptor
+│   └── ...
+├── README.md               # Project documentation
+└── ...
+
+
+  
+
+
 
 
 
