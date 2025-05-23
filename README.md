@@ -92,6 +92,7 @@ docker run -d --name keycloak \
   -p 8080:8080 \
   quay.io/keycloak/keycloak:24.0.1 \
   start-dev
+```
 
 
 
