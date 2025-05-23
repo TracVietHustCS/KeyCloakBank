@@ -46,11 +46,35 @@ This project also integrates modern identity features like:
 
 ## 🛠 Getting Started
 
-### Prerequisites
+### ✅ Prerequisites
 
-- Node.js / Java (depending on your backend stack)
-- Docker (for running Keycloak)
-- Git
+Before running the project, ensure you have the following installed:
+
+- [**Docker**](https://www.docker.com/) – for running Keycloak and MySQL containers
+- [**MySQL Server**](https://dev.mysql.com/downloads/mysql/) – relational database
+- [**MySQL Workbench**](https://dev.mysql.com/downloads/workbench/) – GUI for managing your database
+- [**Keycloak**](https://www.keycloak.org/) – identity and access management server (self-hosted or containerized)
+- [**Git**](https://git-scm.com/) – version control system
+- [**Maven**](https://maven.apache.org/) – build automation for Java
+- [**Java JDK 17+**](https://adoptium.net/) – required to build and run the Spring Boot backend
+- **An IDE for Spring development**:
+  - [IntelliJ IDEA](https://www.jetbrains.com/idea/) (Recommended)
+  - or [Spring Tool Suite (STS)](https://spring.io/tools)
+
+---
+
+### 🔧 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/keycloak-bank.git
+cd keycloak-bank
+
+# Build the application using Maven
+./mvnw clean install  # Or: mvn clean install
+
+# Run the Spring Boot application
+./mvnw spring-boot:run  # Or: mvn spring-boot:run
 
 ### Installation
 
@@ -59,8 +83,4 @@ This project also integrates modern identity features like:
 git clone https://github.com/yourusername/keycloak-bank.git
 cd keycloak-bank
 
-# Install dependencies
-npm install
 
-# Run the app
-npm start
